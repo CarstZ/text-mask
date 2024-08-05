@@ -15,9 +15,6 @@ Run `ng build angular18-text-mask` to build the project. The build artifacts wil
 
 After building your library with `ng build angular18-text-mask`, go to the dist folder `cd dist/angular18-text-mask` and run `npm publish`.
 
-## Running unit tests
-
-Run `ng test angular18-text-mask` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 

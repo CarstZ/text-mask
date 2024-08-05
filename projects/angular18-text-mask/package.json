@@ -1,9 +1,10 @@
 {
   "name": "angular18-text-mask",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^18.1.0",
-    "@angular/core": "^18.1.0"
+    "@angular/core": "^18.1.0",
+    "text-mask-core": "^5.1.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"
