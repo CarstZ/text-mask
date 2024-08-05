@@ -4,7 +4,7 @@ import {ɵgetDOM as getDOM} from '@angular/platform-browser'
 import { createTextMaskInputElement } from 'text-mask-core/dist/textMaskCore'
 
 export class TextMaskConfig {
-  mask: Array<string | RegExp> | ((raw: string) => Array<string | RegExp>) | false
+  mask?: Array<string | RegExp> | ((raw: string) => Array<string | RegExp>) | false
   guide?: boolean
   placeholderChar?: string
   pipe?: (conformedValue: string, config: TextMaskConfig) => false | string | object
@@ -51,7 +51,7 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
   onTouched = () => {}
 
   private textMaskInputElement: any
-  private inputElement: HTMLInputElement
+  private inputElement?: HTMLInputElement
 
   /** Whether the user is creating a composition string (IME events). */
   private _composing = false
@@ -69,7 +69,7 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this._setupMask(true)
     if (this.textMaskInputElement !== undefined) {
-      this.textMaskInputElement.update(this.inputElement.value)
+      this.textMaskInputElement.update(this.inputElement?.value)
     }
   }
 
@@ -93,7 +93,7 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
   }
 
   
-  _handleInput(value) {
+  _handleInput(value?: string) {
     if (!this._compositionMode || (this._compositionMode && !this._composing)) {
       this._setupMask()
 
@@ -101,7 +101,7 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
         this.textMaskInputElement.update(value)
         
         // get the updated value
-        value = this.inputElement.value
+        value = this.inputElement?.value
         this.onChange(value)
       }
     }
